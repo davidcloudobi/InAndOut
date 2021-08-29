@@ -1,0 +1,49 @@
+﻿@model InAndOut.Models.Item
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container">
+    <form asp-action="Create" asp-controller="Item" method="post">
+        <div class="border p-3">
+            <div class="form-group row pb-3"> 
+                <h2 class="text-black-50 pl-3"> Add Item</h2>
+            </div>
+
+            <div class="form-group row pl-3">
+                <div class="col-4">
+                    <label asp-for="Borrower" class="form-label"></label>
+                </div>
+                <div class="col-4">
+                    <label asp-for="Lender" class="form-label"></label>
+                </div>
+                <div class="col-4">
+                    <label asp-for="ItemName" class="form-label"></label>
+                </div>
+
+            </div>
+
+            <div class="form-group row pl-3">
+                <div class="col-4">
+                    <input asp-for="Borrower" type="text" class="form-control" id="Borrower" aria-describedby="Borrower">
+                </div>
+                <div class="col-4">
+                    <input asp-for="Lender" type="text" class="form-control" id="Lender">
+                </div>
+                <div class="col-4">
+                    <input asp-for="ItemName" type="text" class="form-control" id="ItemName">
+                </div>
+
+            </div>
+
+            <div class="form-group row">
+                <div class="col-8 offset-2 row">
+                    <div class="col"> <button type="submit" class="btn btn-primary w-75" >create</button></div>
+                    <div class="col"> <a asp-controller="Item" asp-action="Index" class=" btn btn-danger w-75">Go Back</a></div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>

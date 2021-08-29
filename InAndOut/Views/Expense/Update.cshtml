@@ -1,0 +1,68 @@
+﻿@model InAndOut.Models.ViewModels.ExpenseVM
+
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="container">
+    <form asp-action="UpdatePost" asp-controller="Expense" method="post">
+        <input asp-for="Expense.Id" hidden />
+        <div class="border p-3">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group row pb-3">
+                <h2 class="text-black-50 pl-3"> Update Expense</h2>
+            </div>
+
+            <div class="form-group row pl-3">
+                <div class="col-4">
+                    <label asp-for="Expense.ExpenseName" class="form-label"></label>
+                </div>
+                <div class="col-4">
+                    <label asp-for="Expense.Amount" class="form-label"></label>
+                </div>
+
+                <div class="col-4">
+                    <label asp-for="Expense.ExpenseType" class="form-label"></label>
+                </div>
+
+
+            </div>
+
+            <div class="form-group row pl-3">
+                <div class="col-4">
+                    <input asp-for="Expense.ExpenseName" type="text" class="form-control" id="Borrower" aria-describedby="Borrower">
+                    <span asp-validation-for="Expense.ExpenseName" class="text-danger"></span>
+                </div>
+                <div class="col-4">
+                    <input asp-for="Expense.Amount" class="form-control" id="Lender">
+                    <span asp-validation-for="Expense.Amount" class="text-danger"></span>
+                </div>
+
+                <div class="col-4">
+                    @* @ViewBag.TypeDropDown *@
+
+                    <select asp-for="Expense.ExpenseTypeId" asp-items="@Model.TypeDropDown" class="form-control" id="Lender">
+                       @* <option selected> -- Select Expense Type --</option>*@
+                    </select>
+                    <span asp-validation-for="Expense.ExpenseTypeId" class="text-danger"></span>
+                </div>
+
+
+            </div>
+
+            <div class="form-group row">
+                <div class="col-8 offset-2 row">
+                    <div class="col"> <button type="submit" class="btn btn-success w-75">Update</button></div>
+                    <div class="col"> <a asp-controller="Expense" asp-action="Index" class=" btn btn-secondary w-75">Go Back</a></div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
